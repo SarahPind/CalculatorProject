@@ -47,7 +47,7 @@ namespace CalculatorProject
         {
             return Math.Pow(a,b);
         }
-        ♣
+        
 
     }
 }
