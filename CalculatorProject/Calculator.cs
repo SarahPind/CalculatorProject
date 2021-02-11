@@ -6,46 +6,42 @@ namespace CalculatorProject
 {
     public class Calculator
     {
+        public double Accumulator { get; set; } = 0;
+
         private double a;
-        private double b;
         
-        //public Calculator(double a, double b, double x)
-        //{
-        //    this.a = a;
-        //    this.b = b;
-        //    this.x = x;
-        //}
-
-        public double Add(double a, double b)
+        public double Add(double a)
         {
-            return a + b;
+            Accumulator += a;
+            return Accumulator; 
         }
 
-        public double Substact(double a, double b)
+        public double Substact(double a)
         {
-            return a - b;
+            Accumulator -= a;
+            return Accumulator; 
         }
 
-        public double Multiple(double a, double b)
+        public double Multiply(double a)
         {
-            return a * b;
+            Accumulator = Accumulator * a;
+            return Accumulator; 
         }
 
-        public double Divide(double a, double b)
+        public double Divide(double a)
         {
-            var c=0.0;
-            if (b != 0)
+            if (a != 0)
             {
-                c = a / b;
+                Accumulator = Accumulator / a;
             }
             else
-                c = 0.0;
-            return c;
+                Console.WriteLine("Fejl");
+            return Accumulator;
         }
 
-        public double Power(double a, double b)
+        public double Power(double a)
         {
-            return Math.Pow(a,b);
+            return Math.Pow(Accumulator,a);
         }
         
 
