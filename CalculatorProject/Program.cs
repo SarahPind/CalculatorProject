@@ -20,6 +20,9 @@ namespace CalculatorProject
             // Test af Power metoden
             Console.WriteLine("a^b er: " + calc.Power(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())));
 
+            //Test af Divide metoden
+            Console.WriteLine("a / b er: " + calc.Divide(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine())));
+
         }
     }
 }
