@@ -33,7 +33,14 @@ namespace CalculatorProject
 
         public double Divide(double a, double b)
         {
-            return a / b;
+            var c=0.0;
+            if (b != 0)
+            {
+                c = a / b;
+            }
+            else
+                c = 0.0;
+            return c;
         }
 
         public double Power(double a, double b)
