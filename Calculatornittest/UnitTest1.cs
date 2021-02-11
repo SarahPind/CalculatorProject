@@ -18,23 +18,27 @@ namespace Calculatornittest
         [Test]
         public void Check_Add_Method()
         {
-           Assert.That(uut.Add(3,4), Is.EqualTo(7));
+            uut.Accumulator = 3;
+            Assert.That(uut.Add(4), Is.EqualTo(7));
         }
 
         [Test]
         public void Check_Devide_Method_return7()
         {
-            Assert.That(uut.Divide(14, 2), Is.EqualTo(7));
+            uut.Accumulator = 14;
+            Assert.That(uut.Divide( 2), Is.EqualTo(7));
         }
         [Test]
         public void Check_Devide_Method_return0()
         {
-            Assert.That(uut.Divide(14, 0), Is.EqualTo(0));
+            uut.Accumulator = 14;
+            Assert.That(uut.Divide( 0), Is.EqualTo(0));
         }
         [Test]
         public void Check_Devide_Method_return35()
         {
-            Assert.That(uut.Divide(14, 4), Is.EqualTo(3.5));
+            uut.Accumulator = 14;
+            Assert.That(uut.Divide( 4), Is.EqualTo(3.5));
         }
 
     }
