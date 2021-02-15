@@ -53,5 +53,25 @@ namespace Calculatornittest
             Assert.That(uut.Divide( 4), Is.EqualTo(3.5));
         }
 
+        [TestCase(3, 4, 12)]
+        [TestCase(5, 5, 25)]
+        [TestCase(3.23, 6.45, 20.8)]
+        public void Check_Multiply_Method_return_expected(double a, double b, double expected)
+        {
+            uut = new Calculator(a);
+            double result = uut.Multiply(b);
+            Assert.That(result, Is.EqualTo(expected).Within(1E-1));
+        }
+
+        [TestCase(3, 2, 9)]
+        [TestCase(5, 2, 25)]
+        [TestCase(2, 3, 8)]
+        public void Check_Power_Method_return_expected(double a, double b, double expected)
+        {
+            uut = new Calculator(a);
+            double result = uut.Power(b);
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
     }
 }
