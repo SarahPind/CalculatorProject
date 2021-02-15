@@ -6,44 +6,48 @@ namespace CalculatorProject
     {
         static void Main(string[] args)
         {
-            Calculator calc = new Calculator();
+            Console.WriteLine("Indtast et tal efterfulgt af Enter");
 
             double firstNb = Convert.ToDouble(Console.ReadLine());
-            calc.Accumulator = firstNb; 
+
+            Calculator calc = new Calculator(firstNb);
 
             while (true)
             {
-                string operation = Console.ReadLine(); 
+                Console.WriteLine("Indtast en regneoperation efterfulgt af Enter");
+                string operation = Console.ReadLine();
+
+                Console.WriteLine("Indtast et tal efterfulgt af Enter");
                 double newNb = Convert.ToDouble(Console.ReadLine());
 
                 if (operation == "+")
                 {
                     double result = calc.Add(newNb); 
-                    Console.WriteLine(result);
+                    Console.WriteLine("Resultatet er: " + result);
                 }
 
                 else if (operation == "-")
                 {
                     double result = calc.Substact(newNb);
-                    Console.WriteLine(result);
+                    Console.WriteLine("Resultatet er: " + result);
                 }
 
                 else if (operation == "*")
                 {
                     double result = calc.Multiply(newNb);
-                    Console.WriteLine(result);
+                    Console.WriteLine("Resultatet er: " + result);
                 }
 
                 else if (operation == "/")
                 {
                     double result = calc.Divide(newNb);
-                    Console.WriteLine(result);
+                    Console.WriteLine("Resultatet er: " + result);
                 }
 
                 else if (operation == "^")
                 {
                     double result = calc.Power(newNb);
-                    Console.WriteLine(result);
+                    Console.WriteLine("Resultatet er: " + result);
                 }
             }
 
