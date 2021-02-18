@@ -1,3 +1,4 @@
+using System;
 using CalculatorProject;
 using NUnit.Framework;
 
@@ -45,10 +46,10 @@ namespace Calculatornittest
             Assert.That(uut.Divide( 2), Is.EqualTo(7));
         }
         [Test]
-        public void Check_Devide_Method_return14()
+        public void Check_Devide_Method_DividByZeroExc()
         {
             uut = new Calculator(14);
-            Assert.That(uut.Divide( 0), Is.EqualTo(14));
+            Assert.Throws<DivideByZeroException>(() =>uut.Divide( 0));
         }
         [Test]
         public void Check_Devide_Method_return3_point_5()
