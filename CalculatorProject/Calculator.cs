@@ -35,12 +35,22 @@ namespace CalculatorProject
 
         public double Divide(double a)
         {
-            if (a != 0)
+            try
             {
                 Accumulator = Accumulator / a;
             }
-            else
-                Console.WriteLine("Fejl");
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
+            //if (a != 0)
+            //{
+            //    Accumulator = Accumulator / a;
+            //}
+            //else
+            //    Console.WriteLine("Fejl");
             return Accumulator;
         }
 
