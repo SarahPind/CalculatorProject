@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Channels;
 
 namespace CalculatorProject
 {
@@ -35,22 +36,12 @@ namespace CalculatorProject
 
         public double Divide(double a)
         {
-            try
+            if (a == 0)
             {
-                Accumulator = Accumulator / a;
+                throw new DivideByZeroException();
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            Accumulator = Accumulator / a;
             
-            //if (a != 0)
-            //{
-            //    Accumulator = Accumulator / a;
-            //}
-            //else
-            //    Console.WriteLine("Fejl");
             return Accumulator;
         }
 

@@ -21,7 +21,11 @@ namespace Calculatornittest
         {
             uut = new Calculator(a);
             double result = uut.Add(b);
-            Assert.That(result,Is.EqualTo(expected));
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected));
+            });
         }
 
         [TestCase(10, 5, 5)]
