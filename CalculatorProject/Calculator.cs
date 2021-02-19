@@ -47,7 +47,8 @@ namespace CalculatorProject
 
         public double Power(double a)
         {
-            return Math.Pow(Accumulator,a);
+            Accumulator = Math.Pow(Accumulator,a);
+            return Accumulator; 
         }
         
 

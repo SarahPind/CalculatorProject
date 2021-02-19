@@ -1,3 +1,4 @@
+using System;
 using CalculatorProject;
 using NUnit.Framework;
 
@@ -13,6 +14,16 @@ namespace Calculatornittest
         public void Setup()
         {
         }
+
+        [TestCase(2,2)]
+        [TestCase(3.78,3.78)]
+        [TestCase(-15.1,-15.1)]
+        public void Check_Constructor_setting_Accumulator(double a, double expected)
+        {
+            uut = new Calculator(a);
+            Assert.That(uut.Accumulator,Is.EqualTo(expected));
+        }
+
         [TestCase(3, 4, 7)]
         [TestCase(5, 6, 11)]
         [TestCase(7, 8, 15)]
@@ -20,6 +31,7 @@ namespace Calculatornittest
         {
             uut = new Calculator(a);
             double result = uut.Add(b);
+
             Assert.Multiple(() =>
             {
                 Assert.That(result, Is.EqualTo(expected));
@@ -34,26 +46,45 @@ namespace Calculatornittest
         {
             uut = new Calculator(a);
             double result = uut.Substact(b);
-            Assert.That(result, Is.EqualTo(expected));
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected));
+            });
         }
 
         [Test]
         public void Check_Devide_Method_return7()
         {
             uut = new Calculator(14);
-            Assert.That(uut.Divide( 2), Is.EqualTo(7));
+            double result = uut.Divide(2);
+            double expected = 7; 
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected));
+            });
         }
         [Test]
-        public void Check_Devide_Method_return14()
+        public void Check_Devide_Method_DividByZeroExc()
         {
             uut = new Calculator(14);
-            Assert.That(uut.Divide( 0), Is.EqualTo(14));
+            Assert.Throws<DivideByZeroException>(() =>uut.Divide( 0));
         }
         [Test]
         public void Check_Devide_Method_return3_point_5()
         {
             uut = new Calculator(14);
-            Assert.That(uut.Divide( 4), Is.EqualTo(3.5));
+            double result = uut.Divide(4);
+            double expected = 3.5; 
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected));
+            });
         }
 
         [TestCase(3, 4, 12)]
@@ -63,7 +94,12 @@ namespace Calculatornittest
         {
             uut = new Calculator(a);
             double result = uut.Multiply(b);
-            Assert.That(result, Is.EqualTo(expected).Within(1E-1));
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected).Within(1E-1));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected).Within(1E-1));
+            });
         }
 
         [TestCase(3, 2, 9)]
@@ -73,7 +109,13 @@ namespace Calculatornittest
         {
             uut = new Calculator(a);
             double result = uut.Power(b);
-            Assert.That(result, Is.EqualTo(expected));
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(result, Is.EqualTo(expected));
+                Assert.That(uut.Accumulator, Is.EqualTo(expected));
+            });
+
         }
 
     }
