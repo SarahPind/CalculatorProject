@@ -13,7 +13,6 @@ namespace Calculatornittest
         public void Setup()
         {
         }
-
         [TestCase(3, 4, 7)]
         [TestCase(5, 6, 11)]
         [TestCase(7, 8, 15)]
