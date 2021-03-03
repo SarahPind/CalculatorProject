@@ -24,6 +24,7 @@ namespace Calculatornittest
             Assert.That(uut.Accumulator,Is.EqualTo(expected));
         }
 
+
         [TestCase(3, 4, 7)]
         [TestCase(5, 6, 11)]
         [TestCase(7, 8, 15)]
